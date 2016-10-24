@@ -1,0 +1,65 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package megasena;
+
+import java.util.Random;
+
+/**
+ *
+ * @author internet
+ */
+public class MegaSena {
+    
+    public static void main(String[] args) {
+        int quantidadeDeNumeroSorteado = 6, linha = 0, coluna = 0;
+        int matriz[][] = new int[3000][quantidadeDeNumeroSorteado];
+        int countNumeroX[][] = new int[61][2];
+        int vetorOrdenado[] = new int[6];
+        Sort sort = new Sort();
+        
+        Random random = new Random();
+        String resultado = "", resultadoFinal = "", resultadoOrdenado = "", resultadoQuantidadePorNumero = "";
+        
+        for (int i = 0; i < 61; i++) {
+            countNumeroX[i][0] = i;
+            countNumeroX[i][1] = 0;
+        }
+        
+        for (linha = 0; linha < 3000; linha++) {
+            final int[] sorteio = random.ints(1, 61).distinct().limit(quantidadeDeNumeroSorteado).toArray();
+            for (coluna = 0; coluna < quantidadeDeNumeroSorteado; coluna++) {
+                matriz[linha][coluna] = sorteio[coluna];
+                for (int i = 0; i < 61; i++) {
+                    if(countNumeroX[i][0] == matriz[linha][coluna]) {
+                        countNumeroX[i][1] = countNumeroX[i][1] + 1;
+                    }
+                }
+            }
+        }
+
+        for (linha = 0; linha < 3000; linha++) {
+            for(coluna = 0; coluna < quantidadeDeNumeroSorteado; coluna++){
+                resultado = resultado + String.format("%1$02d ", matriz[linha][coluna]);
+                vetorOrdenado[coluna] = matriz[linha][coluna];
+            }
+            sort.bubbleSort(vetorOrdenado, quantidadeDeNumeroSorteado);
+            for (coluna = 0; coluna < quantidadeDeNumeroSorteado; coluna++) {
+                resultadoOrdenado = resultadoOrdenado + String.format("%1$02d ", vetorOrdenado[coluna]);
+            }
+            resultadoFinal = String.format("Sorteio[%1$04d]: " + resultado + "[ " + resultadoOrdenado + "]", (linha+1));
+            System.out.println(resultadoFinal);
+            resultado = "";
+            resultadoOrdenado = "";
+        }
+        
+        for (int i = 1; i < 61; i++) {
+            resultadoQuantidadePorNumero = resultadoQuantidadePorNumero + String.format("Numero %1$02d = %2$04d vezes\n", i, countNumeroX[i][1]);
+        }
+        System.out.println(resultadoQuantidadePorNumero);
+        
+    }
+    
+}
