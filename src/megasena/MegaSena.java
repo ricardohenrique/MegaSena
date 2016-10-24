@@ -20,6 +20,7 @@ public class MegaSena {
         int vetorOrdenado[] = new int[6];
         Sort sort = new Sort();
         
+        
         Random random = new Random();
         String resultado = "", resultadoFinal = "", resultadoOrdenado = "", resultadoQuantidadePorNumero = "";
         
