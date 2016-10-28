@@ -48,7 +48,7 @@ public class MegaSena {
             }
         }
 
-        for (linha = 0; linha < 3; linha++) {
+        for (linha = 0; linha < 3000; linha++) {
             for(coluna = 0; coluna < quantidadeDeNumeroSorteado; coluna++){
                 resultado = resultado + String.format("%1$02d ", matriz[linha][coluna]);
                 vetorOrdenado[coluna] = matriz[linha][coluna];
@@ -59,9 +59,30 @@ public class MegaSena {
             }
             for (int i = 0; i < 61; i++) {
                 for (int j = 0; j < 61; j++) {
-                    if (vetorOrdenado[0] == i && vetorOrdenado[1] == j) {
-                        matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
-                    }
+                    //compara primeiro número com os demais
+                    if (vetorOrdenado[0] == i && vetorOrdenado[1] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[0] == i && vetorOrdenado[2] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[0] == i && vetorOrdenado[3] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[0] == i && vetorOrdenado[4] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[0] == i && vetorOrdenado[5] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    
+                    //compara segundo número com os demais
+                    if (vetorOrdenado[1] == i && vetorOrdenado[2] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[1] == i && vetorOrdenado[3] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[1] == i && vetorOrdenado[4] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[1] == i && vetorOrdenado[5] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    
+                    //compara terceiro número com os demais
+                    if (vetorOrdenado[2] == i && vetorOrdenado[3] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[2] == i && vetorOrdenado[4] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[2] == i && vetorOrdenado[5] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    
+                    //compara quarto número com os demais
+                    if (vetorOrdenado[3] == i && vetorOrdenado[4] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    if (vetorOrdenado[3] == i && vetorOrdenado[5] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
+                    
+                    //compara quinto número com os demais
+                    if (vetorOrdenado[4] == i && vetorOrdenado[5] == j) matrizCountDupla[i][j] = matrizCountDupla[i][j] + 1;
                 }
             }
             resultadoFinal = String.format("Sorteio[%1$04d]: " + resultado + "[ " + resultadoOrdenado + "]", (linha+1));;
@@ -70,20 +91,40 @@ public class MegaSena {
             resultadoOrdenado = "";
         }
         
-//        for (int i = 1; i < 61; i++) {
-//            resultadoQuantidadePorNumero = resultadoQuantidadePorNumero + String.format("Numero %1$02d = %2$04d vezes\n", i, countNumeroX[i][1]);
-//        }
-//        
-//        System.out.println(resultadoQuantidadePorNumero);
+        for (int i = 1; i < 61; i++) {
+            resultadoQuantidadePorNumero = resultadoQuantidadePorNumero + String.format("Numero %1$02d = %2$04d vezes\n", i, countNumeroX[i][1]);
+        }
+        System.out.println(resultadoQuantidadePorNumero);
 
-        
         for (int i = 0; i < 61; i++) {
             for (int j = 0; j < 61; j++) {
-                resultadoDupla += matrizCountDupla[i][j] + " ";
+                resultadoDupla += String.format("%1$02d " ,matrizCountDupla[i][j]);
             }
             resultadoDupla += "\n";
         }
         System.out.println(resultadoDupla);
+//        ------------------------------------------------------------        
+        int maiores[][] = new int[15][3];
+        for (int i = 0; i < 15; i++) {
+            maiores[i][0] = 0;
+        }
+        String resultadoDuplasMaior = "";
+        for (int i = 0; i < 61; i++) {
+            for (int j = 0; j < 61; j++) {
+                for (int k = 0; k < 15; k++) {
+                    if (matrizCountDupla[i][j] > maiores[k][0]) {
+                        maiores[k][0] = matrizCountDupla[i][j];
+                        maiores[k][1] = i;
+                        maiores[k][2] = j;
+                    }    
+                }
+            }
+        }
+        for (int i = 0; i < 15; i++) {
+            resultadoDuplasMaior += "\nDupla " + maiores[i][1] + " e " + maiores[i][2] + " = " + maiores[i][0];
+        }
+        System.out.println(resultadoDuplasMaior);
+//        -----------------------------------------------------------------
 
         
     }
