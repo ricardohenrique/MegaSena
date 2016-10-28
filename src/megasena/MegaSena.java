@@ -104,26 +104,24 @@ public class MegaSena {
         }
         System.out.println(resultadoDupla);
 //        ------------------------------------------------------------        
-        int maiores[][] = new int[15][3];
+        int maiores[] = new int[15];
         for (int i = 0; i < 15; i++) {
-            maiores[i][0] = 0;
+            maiores[i] = 0;
         }
-        String resultadoDuplasMaior = "";
+        String Maior1 = "", Maior2 = "";
+        int numero1 = 0, numero2 = 0;
         for (int i = 0; i < 61; i++) {
             for (int j = 0; j < 61; j++) {
-                for (int k = 0; k < 15; k++) {
-                    if (matrizCountDupla[i][j] > maiores[k][0]) {
-                        maiores[k][0] = matrizCountDupla[i][j];
-                        maiores[k][1] = i;
-                        maiores[k][2] = j;
-                    }    
+                if (matrizCountDupla[i][j] > numero1){
+                    maiores[14] = matrizCountDupla[i][j];
+                    numero1 = matrizCountDupla[i][j];
+                    Maior1 = "\n1º maior dupla " + i + " e " + j + " -> " + maiores[14];
                 }
             }
         }
-        for (int i = 0; i < 15; i++) {
-            resultadoDuplasMaior += "\nDupla " + maiores[i][1] + " e " + maiores[i][2] + " = " + maiores[i][0];
-        }
-        System.out.println(resultadoDuplasMaior);
+        
+        System.out.println(Maior1);
+        System.out.println(Maior2);
 //        -----------------------------------------------------------------
 
         
