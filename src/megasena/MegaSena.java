@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  *
- * @author internet
+ * @author internet teste
  */
 public class MegaSena {
     
