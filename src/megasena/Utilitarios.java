@@ -5,6 +5,8 @@
  */
 package megasena;
 
+
+
 /**
  *
  * @author internet
