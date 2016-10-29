@@ -120,6 +120,7 @@ public class MegaSena {
             }
         }
         
+        
         System.out.println(Maior1);
         System.out.println(Maior2);
 //        -----------------------------------------------------------------
