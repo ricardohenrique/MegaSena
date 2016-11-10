@@ -42,14 +42,13 @@ public class Menu {
                     jogos.duplasMaisSorteadas();         
                 break;
                 case 3 : 
-                    //jogar(jogos);
+                    jogos.jogar();
                 break;
                 case 0 : 
                     System.out.println("\nObrigado por jogar, volte sempre.\n");    
                     return;
                 default  : 
-                    //printf("\nOpcao nao encontrada, digite novamente\n");
-                    //getch();                        
+                    System.out.println("\nOpcao nao encontrada, digite novamente\n");                       
                 break;
             }
         }

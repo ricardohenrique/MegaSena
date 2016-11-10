@@ -6,6 +6,7 @@
 package megasena;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Jogos {
     public int matriz[][] = new int[3000][6];
     public int countNumeroX[][] = new int[61][2];
     public Sort sort = new Sort();
+    public Scanner scanner = new Scanner(System.in);
     
     public Jogos(){
         this.linha = 0;
@@ -128,5 +130,57 @@ public class Jogos {
                 }
             }
         }
+    }
+    
+    public void jogar(){
+        int i, j;
+        String jogadores[] = new String[4];
+        int jogadas[][] = new int[4][6];
+
+	System.out.println("\n");
+	for(i = 0 ; i < 6 ; i++){
+            System.out.println(" | " +  this.matriz[2999][i]);
+	}
+	System.out.println("\n");
+        
+        for(i = 0 ; i < 3 ; i++){
+            System.out.println("Jogador " + (i+1));
+            jogadores[i] = scanner.next();
+
+            System.out.println("\nInforme os 6 numeros\n");
+
+            for(j = 0 ; j < 6 ; j++){
+                jogadas[i][j] = scanner.nextInt();
+            }
+        }
+    
+	for(i = 0 ; i < 3 ; i++){
+            System.out.println("\nJogador "+ (i + 1) + " " + jogadores[i]);
+            for(j = 0 ; j < 6 ; j++){
+                System.out.println(jogadas[i][j] + " ");
+            }
+        }
+    
+	//--------------------------------------------------	
+	int x, y, z;
+        int acertos[][] = new int[3][1];
+			  		 
+	acertos[0][0] = 0;
+	acertos[1][0] = 0;		  		 
+	acertos[2][0] = 0;
+			  		 		  		 
+        for(y = 0; y < 6; y++){
+            for(j = 0 ; j < 3 ; j++){
+	        for(z = 0 ; z < 6 ; z++){
+                    if(this.matriz[2999][y] == jogadas[j][z]){
+    			acertos[j][0] = acertos[j][0] + 1;
+                    }
+	        }
+            }             
+	}
+	
+	for(y = 0; y < 3; y++){
+            System.out.println("\nParabens " + jogadores[y] + ", voce acertou " + acertos[y][0] + " numeros!");
+	}   
     }
 }
