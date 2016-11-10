@@ -35,11 +35,11 @@ public class Menu {
                     //int matriz[][] = new int[3000][6];
                     
                     jogos.popularJogos();
-                    //jogos.mostrarJogos();	
+                    jogos.mostrarJogos();	
                 break;
                 case 2 : 
                     jogos.mostrarCountNumeros();  
-                    //duplasMaisSorteadas(jogos);         
+                    jogos.duplasMaisSorteadas();         
                 break;
                 case 3 : 
                     //jogar(jogos);
