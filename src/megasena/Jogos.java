@@ -16,31 +16,40 @@ public class Jogos {
     public int coluna;
     public int quantidadeDeNumeroSorteado;
     public int matriz[][] = new int[3000][6];
+    public int countNumeroX[][] = new int[61][2];
+    
     public Jogos(){
         this.linha = 0;
         this.coluna = 0;
         this.quantidadeDeNumeroSorteado = 6;
+                
+        for (int i = 0; i < 61; i++) {
+            this.countNumeroX[i][0] = i;
+            this.countNumeroX[i][1] = 0;
+        }
     }
+    
     public void popularJogos(){
       
-      Random random = new Random();
-      //System.out.println("teste");
-      for (this.linha = 0; this.linha < 3000; this.linha++) {
+        Random random = new Random();
+        //System.out.println("teste");
+        for (this.linha = 0; this.linha < 3000; this.linha++) {
             final int[] sorteio = random.ints(1, 61).distinct().limit(this.quantidadeDeNumeroSorteado).toArray();
             for (this.coluna = 0; this.coluna < this.quantidadeDeNumeroSorteado; this.coluna++) {
-                System.out.println(sorteio[this.coluna]);
+                //System.out.println(sorteio[this.coluna]);
                 this.matriz[this.linha][this.coluna] = sorteio[this.coluna];
-//                for (int i = 0; i < 61; i++) {;
-//                    if(countNumeroX[i][0] == matriz[linha][coluna]) {
-//                        countNumeroX[i][1] = countNumeroX[i][1] + 1;
-//                    }
-//                }
+                for (int i = 0; i < 61; i++) {
+                    if(this.countNumeroX[i][0] == this.matriz[this.linha][this.coluna]) {
+                        this.countNumeroX[i][1] = this.countNumeroX[i][1] + 1;
+                    }
+                }
             }
         }
+      System.out.println("aquiiii:" + this.countNumeroX[1][1]);
   
     }
     public void mostrarJogos(){
-        System.out.println("teste1");
+        //System.out.println("teste1");
         String resultado = "", resultadoFinal = "", resultadoOrdenado = "";
         int vetorOrdenado[] = new int[6];
         Sort sort = new Sort();
@@ -59,5 +68,13 @@ public class Jogos {
             resultado = "";
             resultadoOrdenado = "";
         }
+    }
+    
+    public void mostrarCountNumeros(){
+        String resultadoQuantidadePorNumero = "";
+        for (int i = 1; i < 61; i++) {
+            resultadoQuantidadePorNumero = resultadoQuantidadePorNumero + String.format("Numero %1$02d = %2$04d vezes\n", i, this.countNumeroX[i][1]);
+        }
+        System.out.println(resultadoQuantidadePorNumero);	
     }
 }
