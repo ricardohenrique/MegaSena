@@ -1,2 +1,5 @@
 nbproject/private/private.properties
 build/classes/megasena/MegaSena.class
+/nbproject/private/
+/build/
+/dist/
