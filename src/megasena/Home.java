@@ -5,6 +5,8 @@
  */
 package megasena;
 
+import java.awt.Color;
+
 /**
  *
  * @author internet
@@ -16,6 +18,8 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        //getContentPane().setBackground(Color.blue);
+        
     }
 
     /**
@@ -33,7 +37,6 @@ public class Home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(400, 300));
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(0, 153, 51));
@@ -45,7 +48,7 @@ public class Home extends javax.swing.JFrame {
         btnSorteios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnSorteios.setText("Gerar Sorteios");
 
-        jLabel1.setText("© Copyright Vestindo Certo");
+        jLabel1.setText("Copyright © Vestindo Certo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,18 +59,16 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSorteios)
+                .addGap(126, 126, 126))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(lblTitulo)
                         .addGap(92, 92, 92))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSorteios)
-                .addGap(126, 126, 126))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
