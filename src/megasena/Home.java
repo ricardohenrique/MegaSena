@@ -6,6 +6,7 @@
 package megasena;
 
 import java.awt.Color;
+import megasena.Jogos;
 
 /**
  *
@@ -47,6 +48,11 @@ public class Home extends javax.swing.JFrame {
 
         btnSorteios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnSorteios.setText("Gerar Sorteios");
+        btnSorteios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSorteiosActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Copyright © Vestindo Certo");
 
@@ -86,6 +92,12 @@ public class Home extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSorteiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteiosActionPerformed
+        Jogos jogos = new Jogos();
+        jogos.popularJogos();
+        jogos.mostrarJogos();
+    }//GEN-LAST:event_btnSorteiosActionPerformed
 
     /**
      * @param args the command line arguments
