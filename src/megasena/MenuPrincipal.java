@@ -124,8 +124,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btnSorteiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteiosActionPerformed
         Jogos jogos = new Jogos();
         //JOptionPane.showMessageDialog(null, "Peso minimo: " + jogos.popularJogos());
-        jogos.popularJogos();
-        jogos.mostrarJogos();
+        //jogos.popularJogos();
+        //jogos.mostrarJogos();
     }//GEN-LAST:event_btnSorteiosActionPerformed
 
     private void btnSorteios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteios1ActionPerformed
