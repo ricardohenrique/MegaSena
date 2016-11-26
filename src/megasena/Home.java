@@ -5,9 +5,6 @@
  */
 package megasena;
 
-import java.awt.Color;
-import megasena.Jogos;
-
 /**
  *
  * @author internet
@@ -15,12 +12,10 @@ import megasena.Jogos;
 public class Home extends javax.swing.JFrame {
 
     /**
-     * Creates new form Index
+     * Creates new form Into
      */
     public Home() {
         initComponents();
-        //getContentPane().setBackground(Color.blue);
-        
     }
 
     /**
@@ -34,70 +29,42 @@ public class Home extends javax.swing.JFrame {
 
         lblTitulo = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnSorteios = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lblTitulo.setForeground(new java.awt.Color(0, 153, 51));
         lblTitulo.setText("Bem Vindo!");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Clique abaixo para gerar 3000 sorteios ficticios da Mega Sena");
-
-        btnSorteios.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnSorteios.setText("Gerar Sorteios");
-        btnSorteios.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSorteiosActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Copyright © Vestindo Certo");
+        jLabel2.setText("Este é seu simulador de jogos da Mega Sena");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSorteios)
-                .addGap(126, 126, 126))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblTitulo)
-                        .addGap(92, 92, 92))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(lblTitulo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel2)))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(lblTitulo)
-                .addGap(57, 57, 57)
+                .addGap(67, 67, 67)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnSorteios)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(jLabel1))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSorteiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorteiosActionPerformed
-        Jogos jogos = new Jogos();
-        jogos.popularJogos();
-        jogos.mostrarJogos();
-    }//GEN-LAST:event_btnSorteiosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,8 +103,6 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSorteios;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
